@@ -9,7 +9,9 @@ const AuthRoute = ({ component: Component, ...rest }) => {
     return (
         <Route
             {...rest}
-            render={props => (!localStorage.getItem('isLoggedIn') ? <Component {...props} /> : <Redirect to="/" />)}
+            render={props =>
+                !localStorage.getItem('isLoggedIn') ? <Component {...props} /> : <Redirect to="/posts" />
+            }
         />
     );
 };
